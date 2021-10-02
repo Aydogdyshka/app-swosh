@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--WelcomeVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="app_swosh" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WelcomeVC" customModule="app_swosh" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,19 +80,15 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IIN-aG-iXm" secondAttribute="trailing" constant="20" id="tus-2o-mhv"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="bgImg" destination="rPK-Sv-6W0" id="fmi-yz-dhF"/>
-                        <outlet property="swoosh" destination="1Cu-9l-YDY" id="Hq4-AZ-v6p"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="23.188405797101453" y="61.141304347826093"/>
         </scene>
-        <!--View Controller-->
+        <!--LeagueVC-->
         <scene sceneID="NRl-id-SLK">
             <objects>
-                <viewController id="YpR-Hv-G2m" sceneMemberID="viewController">
+                <viewController id="YpR-Hv-G2m" customClass="LeagueVC" customModule="app_swosh" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Mb-d4-xIe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -108,9 +104,12 @@
                                     <constraint firstAttribute="height" constant="50" id="99a-b4-sRA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                                <state key="normal" title="GET STARTED">
+                                <state key="normal" title="NEXT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="onNextTapped:" destination="YpR-Hv-G2m" eventType="touchUpInside" id="n1A-2N-f3S"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eg6-yB-bxy">
                                 <rect key="frame" x="0.0" y="179" width="375" height="190"/>
@@ -205,22 +204,25 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="O1M-Wf-mBy"/>
+                    <connections>
+                        <segue destination="ARi-X9-6VA" kind="show" identifier="skillVCSegue" id="mQ1-X2-IbJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yh7-Uw-Kcn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="P7C-uE-7GB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="879.20000000000005" y="60.719640179910051"/>
         </scene>
-        <!--View Controller-->
+        <!--SkillVC-->
         <scene sceneID="qIL-iO-iDv">
             <objects>
-                <viewController id="ARi-X9-6VA" sceneMemberID="viewController">
+                <viewController id="ARi-X9-6VA" customClass="SkillVC" customModule="app_swosh" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K0F-fd-ICx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beginnerBallerBG" translatesAutoresizingMaskIntoConstraints="NO" id="BXb-1U-Mfj">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beginnerBallerBG" translatesAutoresizingMaskIntoConstraints="NO" id="BXb-1U-Mfj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Eda-kW-knY">
                                 <rect key="frame" x="0.0" y="136" width="375" height="50"/>
@@ -268,7 +270,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32y-H6-S2b" customClass="BorderButton" customModule="app_swosh" customModuleProvider="target">
-                                <rect key="frame" x="20" y="597" width="335" height="50"/>
+                                <rect key="frame" x="20" y="577" width="335" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40140845069999997" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="jpO-aP-E3V"/>
@@ -300,6 +302,7 @@
                             <constraint firstItem="BN0-Ng-fba" firstAttribute="leading" secondItem="BwM-bl-kdv" secondAttribute="leading" id="rkv-ok-2P2"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="VJ5-Pj-LrI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwV-Sn-EMv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
